@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="red">#ff0000</color> <!-- 红色 -->
+    <color name="white">#ffffff</color> <!-- 白色 -->
+    <color name="gray">#808080</color> <!-- 灰色 -->
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="app_bg">#EDEDED</color>
+    <color name="line">#DEDEDE</color>
+
+    <color name="common_pressed">#11222222</color>
+
+    <color name="bg_yellow_start">#FAED42</color>
+    <color name="bg_yellow_end">#F79F00</color>
+
+    <color name="viewfinder_mask">#60000000</color>
+
+    <color name="nearby_head_btn">#ffa03c</color>
+    <color name="nearby_head_text">#323232</color>
+
+</resources>

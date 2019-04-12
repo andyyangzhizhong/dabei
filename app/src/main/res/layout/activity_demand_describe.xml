@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.qckj.dabei.view.ActionBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:function="button_left|text_title"
+        app:srcLeft="@drawable/back_bg_selector"
+        app:text_title="需求描述" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size"
+        android:background="@color/line" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="描述您的需求"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/input_describe"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/input_bg"
+        android:gravity="start"
+        android:hint="需求描述"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:maxLength="200"
+        android:padding="5dp"
+        android:textSize="17sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="当前位置："
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/input_address"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@null"
+            android:hint="请输入地址"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textCursorDrawable="@drawable/et_cusar"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size"
+        android:layout_marginStart="10dp"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="设置赏金(元)："
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/input_money"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@null"
+            android:hint="请输入赏金"
+            android:imeOptions="actionDone"
+            android:inputType="number|numberDecimal"
+            android:maxLength="15"
+            android:singleLine="true"
+            android:textCursorDrawable="@drawable/et_cusar"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size"
+        android:layout_marginStart="10dp"
+        android:background="@color/line" />
+
+    <RadioGroup
+        android:id="@+id/pay_rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/no_pay_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/bg_pay_check"
+            android:checked="true"
+            android:padding="10dp"
+            android:text="不预付"
+            android:textColor="@color/bg_yellow_end" />
+
+        <RadioButton
+            android:id="@+id/pay_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:button="@drawable/bg_pay_check"
+            android:padding="10dp"
+            android:text="预付"
+            android:textColor="@color/black" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size"
+        android:layout_marginStart="10dp"
+        android:background="@color/line" />
+
+    <com.qckj.dabei.view.CommonItemView
+        android:id="@+id/demand_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:arrowVisible="false"
+        app:itemContent="餐饮"
+        app:itemTitle="需求类型"
+        app:lineVisible="false" />
+
+    <Button
+        android:id="@+id/commit_demand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/login_btn_bg"
+        android:text="@string/mine_emergency_contact_commit"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>
