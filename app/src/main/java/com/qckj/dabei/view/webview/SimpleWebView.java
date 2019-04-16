@@ -43,7 +43,7 @@ public class SimpleWebView extends RelativeLayout {
      * webView
      */
     @FindViewById(R.id.custom_webView)
-    private WebView mWebView;
+    public WebView mWebView;
 
     private WebViewChangeListener webViewChangeListener;
     private String titleText = "";

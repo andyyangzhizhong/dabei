@@ -196,6 +196,10 @@
             android:name=".ui.mine.complain.ComplainActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".manager.share.UmengShareEntryActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

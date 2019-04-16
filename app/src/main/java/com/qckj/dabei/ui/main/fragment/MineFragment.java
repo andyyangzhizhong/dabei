@@ -31,7 +31,9 @@ import com.qckj.dabei.util.inject.FindViewById;
 import com.qckj.dabei.util.inject.Manager;
 import com.qckj.dabei.util.inject.OnClick;
 import com.qckj.dabei.util.inject.ViewInject;
+import com.qckj.dabei.view.dialog.AppShareDialog;
 import com.qckj.dabei.view.image.CircleImageView;
+import com.qckj.dabei.view.webview.BrowserActivity;
 
 /**
  * 我的
@@ -168,10 +170,12 @@ public class MineFragment extends BaseFragment {
                 ComplainActivity.startActivity(getActivity());
                 break;
             case R.id.mine_about_us_view:
-                AboutUsActivity.startActivity(getActivity());
+                //AboutUsActivity.startActivity(getActivity());
+                BrowserActivity.startActivity(getActivity(), "http://192.168.1.123:8091/merchant?shopId=20180806095026HqSkT8gK9kv96Fw7YQ&type=gold&userId=12312&poi=122,33", false);
                 break;
         }
     }
+
 
     @Override
     public void onDestroyView() {

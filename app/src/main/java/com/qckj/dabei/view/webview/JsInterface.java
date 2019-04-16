@@ -8,11 +8,18 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.webkit.JavascriptInterface;
 
+import com.qckj.dabei.R;
 import com.qckj.dabei.app.App;
 import com.qckj.dabei.manager.SettingManager;
 import com.qckj.dabei.manager.location.GaoDeLocationManager;
 import com.qckj.dabei.manager.location.UserLocationInfo;
 import com.qckj.dabei.manager.mine.UserManager;
+import com.qckj.dabei.model.SharedAppInfo;
+import com.qckj.dabei.util.json.JsonHelper;
+import com.qckj.dabei.view.dialog.AppShareDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * 与js交互管理类
@@ -88,6 +95,25 @@ public class JsInterface {
         Uri data = Uri.parse("tel:" + phone);
         intent.setData(data);
         context.startActivity(intent);
+    }
+
+    @JavascriptInterface
+    public void sharedAppInfo(String jsonStr) {
+        SharedAppInfo sharedAppInfo;
+        try {
+            sharedAppInfo = JsonHelper.toObject(new JSONObject(jsonStr), SharedAppInfo.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return;
+        }
+        AppShareDialog dialog = new AppShareDialog((Activity) context);
+        dialog.setContent(sharedAppInfo.getDescribe());
+        dialog.setTitle(sharedAppInfo.getTitle());
+        dialog.setContentUrl(sharedAppInfo.getLink());
+        dialog.setIconRec(-1);
+        dialog.setIconUrl(sharedAppInfo.getIconUrl());
+        dialog.includeCard(sharedAppInfo.isCard());
+        dialog.show();
     }
 
     public String getTitle() {

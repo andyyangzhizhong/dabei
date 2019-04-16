@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
@@ -24,13 +25,14 @@ import com.qckj.dabei.view.ActionBar;
 public class BrowserActivity extends BaseActivity implements SimpleWebView.WebViewChangeListener, SimpleWebView.OnTitleChange {
     public static String URL_NAME = "url_name";
     public static String TITLE = "title";
+    public static String IS_SHOW_ACTION_BAR = "is_show_action_bar";
     public static String SHOULD_OVERRIDE_TITLE = "should_override_title";
 
     @FindViewById(R.id.activity_browser_actionbar)
     private ActionBar mActionBar;
 
     @FindViewById(R.id.activity_browser_browser_wv)
-    private SimpleWebView mBrowserWv;
+    public SimpleWebView mBrowserWv;
 
     @FindViewById(R.id.rootView)
     private ViewGroup rootView;
@@ -42,12 +44,20 @@ public class BrowserActivity extends BaseActivity implements SimpleWebView.WebVi
     private String mCurrentTitle = "";
     private String mUrl;
     private boolean mShouldOverrideTitle = false;
+    private boolean isShowActionBar;
 
     public static void startActivity(Context context, String url, String title, boolean shouldOverrideTitle) {
         Intent lIntent = new Intent(context, BrowserActivity.class);
         lIntent.putExtra(URL_NAME, url);
         lIntent.putExtra(TITLE, title);
         lIntent.putExtra(SHOULD_OVERRIDE_TITLE, shouldOverrideTitle);
+        context.startActivity(lIntent);
+    }
+
+    public static void startActivity(Context context, String url, boolean isShowActionBar) {
+        Intent lIntent = new Intent(context, BrowserActivity.class);
+        lIntent.putExtra(URL_NAME, url);
+        lIntent.putExtra(IS_SHOW_ACTION_BAR, isShowActionBar);
         context.startActivity(lIntent);
     }
 
@@ -74,10 +84,12 @@ public class BrowserActivity extends BaseActivity implements SimpleWebView.WebVi
         mTitle = getIntent().getStringExtra(TITLE);
         mCurrentTitle = mTitle;
         mShouldOverrideTitle = getIntent().getBooleanExtra(SHOULD_OVERRIDE_TITLE, false);
+        isShowActionBar = getIntent().getBooleanExtra(IS_SHOW_ACTION_BAR, true);
     }
 
     private void initView() {
         mActionBar.setTitleText(mTitle);
+        mActionBar.setVisibility(isShowActionBar ? View.VISIBLE : View.GONE);
     }
 
     private void addListener() {
@@ -88,6 +100,15 @@ public class BrowserActivity extends BaseActivity implements SimpleWebView.WebVi
     private void dealWebViewBrowser() {
         mBrowserWv.loadWebUrl(mUrl);
         mBrowserWv.setIsOpenJs(true);
+    }
+
+    public void loadH5Method(String method) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mBrowserWv.mWebView.loadUrl(method);
+            }
+        });
     }
 
     @Override

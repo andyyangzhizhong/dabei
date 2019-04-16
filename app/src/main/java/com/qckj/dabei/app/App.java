@@ -11,6 +11,8 @@ import com.qckj.dabei.manager.cache.CacheManager;
 import com.qckj.dabei.manager.home.HomeDataManager;
 import com.qckj.dabei.manager.location.GaoDeLocationManager;
 import com.qckj.dabei.manager.mine.UserManager;
+import com.qckj.dabei.manager.share.ShareManager;
+import com.qckj.dabei.manager.share.UmengManager;
 import com.qckj.dabei.util.inject.Manager;
 import com.qckj.dabei.util.inject.ManagerInject;
 import com.qckj.dabei.view.dialog.LoadingProgressDialog;
@@ -133,6 +135,8 @@ public class App extends Application {
         managerList.add(new GaoDeLocationManager());
         managerList.add(new HomeDataManager());
         managerList.add(new UserManager());
+        managerList.add(new UmengManager());
+        managerList.add(new ShareManager());
     }
 
 }
