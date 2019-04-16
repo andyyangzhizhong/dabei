@@ -15,6 +15,7 @@ import com.qckj.dabei.app.BaseFragment;
 import com.qckj.dabei.manager.mine.UserManager;
 import com.qckj.dabei.model.mine.UserInfo;
 import com.qckj.dabei.ui.mine.AboutUsActivity;
+import com.qckj.dabei.ui.mine.auth.AuthCenterActivity;
 import com.qckj.dabei.ui.mine.comment.MineCommentActivity;
 import com.qckj.dabei.ui.mine.complain.ComplainActivity;
 import com.qckj.dabei.ui.mine.contact.EmergencyContactActivity;
@@ -108,7 +109,7 @@ public class MineFragment extends BaseFragment {
     }
 
     @OnClick({R.id.user_info_rl, R.id.merchant_center_btn, R.id.mine_order_view, R.id.mine_message_view,
-            R.id.mine_earning_view, R.id.mine_join_partner_view,
+            R.id.mine_earning_view, R.id.mine_join_partner_view,R.id.mine_auth_center_view,
             R.id.mine_evaluate_view, R.id.mine_emergency_contact_view, R.id.mine_complaint_feedback_view, R.id.mine_about_us_view})
     private void onViewClick(View view) {
         if (getActivity() == null) return;
@@ -155,6 +156,13 @@ public class MineFragment extends BaseFragment {
             case R.id.mine_join_partner_view:
                 if (userManager.isLogin()) {
                     JoinPartnerActivity.startActivity(getActivity());
+                } else {
+                    LoginActivity.startActivity(getActivity());
+                }
+                break;
+            case R.id.mine_auth_center_view:
+                if (userManager.isLogin()) {
+                    AuthCenterActivity.startActivity(getActivity());
                 } else {
                     LoginActivity.startActivity(getActivity());
                 }
